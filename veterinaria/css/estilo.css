@@ -1,0 +1,109 @@
+*{
+ margin:0;
+ padding:0;
+ font-family: Arial, Helvetica, sans-serif;
+}
+
+.content{
+width: 1200px;
+margin: 0 auto;
+padding: 20px 0;
+}
+
+.clearfix{
+     clear: both;
+    float: none;
+}
+
+header{
+
+    width: 100%;
+    background-color: rgb(241, 94, 9);
+    height: 100px;
+}
+
+header img{
+    float: left;
+    height: 80px;
+    width: auto;
+}
+
+nav{
+    float: right;
+}
+
+nav a{
+    padding: 10px 20px;
+    color:rgb(248, 248, 248);;
+    text-decoration:none;
+    line-height: 60px;
+    font-weight: bold;
+    border-radius:5 px;
+    transition: all 1s;
+}
+
+nav a:hover{
+    background-color: rgb(249, 222, 187);
+    color: rgb(229, 183, 113);
+}
+
+.half{
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+
+.half img{
+    width: 100%;
+    height: auto;
+}
+
+.half h1{
+    margin-top: 300px;
+    line-height: 70px;
+}
+
+.descripcionVeterinaria {
+     width: 100%;
+    background-color:rgb(249, 221, 184);
+    padding: 80px 0;
+    text-align: center;
+}    
+.descripcionVeterinaria h1{
+    line-height: 50px;}
+
+ .descripcionVeterinaria h3{
+    line-height: 25px;}
+
+.descripcionVeterinaria p{
+    line-height: 30px;
+
+}
+
+.Servicios{
+    width: 100%;
+    list-style: none;
+}
+
+.Servicios li {
+    float:left;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    background-color:rgb(249, 221, 184);
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.Servicios li img {
+     height: 150px;
+     width: auto;
+     margin: 20px auto;
+     display: block;
+}
+
+footer{
+    width: 100%;
+    background-color:rgb(249, 221, 184);
+    padding: 40px;
+}
