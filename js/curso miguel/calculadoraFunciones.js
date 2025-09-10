@@ -3,7 +3,8 @@ function menu() {
     let seleccion = prompt("Elija una de las siguientes opciones: " +
         "\n 1. Suma" +
         "\n 2. Resta" +
-        "\n 3. Multiplicacion \n");
+        "\n 3. Multiplicacion"+
+        "\n 4. division\n");
     return seleccion;
 }
 
@@ -18,6 +19,9 @@ function multiplicar(numero3, numero4) {
 function Resta(numero5, numero6) {
     console.log("el resultado es: " + (numero5 - numero6));
 }
+function division (numero7, numero8) {
+    console.log("el resultado es: " + (numero7 / numero8));
+}
 
 function dato_entrada() {
     const prompt = require('prompt-sync')()
@@ -29,7 +33,7 @@ function calculadora() {
     let opcion_menu = menu();
      let primer_dato;
      let segundo_dato;
-    if (opcion_menu == 1 || opcion_menu == 2 || opcion_menu == 3) {
+    if (opcion_menu == 1 || opcion_menu == 2 || opcion_menu == 3 || opcion_menu == 4) {
         primer_dato = dato_entrada();
         segundo_dato = dato_entrada();
     }
@@ -42,12 +46,16 @@ function calculadora() {
     } else if (opcion_menu == 3) {
         //multiplicacion
         multiplicar(primer_dato,segundo_dato);
+    } else if (opcion_menu == 4) {
+        //division
+        division(primer_dato,segundo_dato);
     } else {
         //imprimir error
         console.log("numero invalido");
     }
 
 }
+
 
 calculadora();
 
