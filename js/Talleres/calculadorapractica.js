@@ -1,81 +1,43 @@
-const readline = require("readline");
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-});
-
-const preguntar = (pregunta) => {
-    return new Promise((resolve) => {
-        rl.question(pregunta, (respuesta) => resolve(respuesta));
-    });
-};
-
-
-const Suma = (numero1, numero2) => numero1 + numero2;
-const Resta = (numero1, numero2) => numero1 - numero2;
-const Multiplicacion = (numero1, numero2) => numero1 * numero2;
-const Division = (numero1, numero2) => (numero2 !== 0 ? numero1 / numero2 : "Error: División por 0 ❌");
+const prompt = require('prompt-sync')();
 
 function menu() {
-    console.log("😊 Bienvenidos a la Calculadora 😊");
-    console.log("1. Suma ➕");
-    console.log("2. Resta ➖");
-    console.log("3. Multiplicación ✖️");
-    console.log("4. División ➗");
-    console.log("5. Salir 👋");
+  console.log(`
+1. Suma ➕
+2. Resta ➖
+3. Multiplicación ✖️
+4. División ➗
+5. Salir 👋`);
+  return Number(prompt("Elige una opción: "));
 }
 
-async function main() {
-    let Salir = true;
-    while (Salir) {
-        menu();
-        const opcionIngresada = await preguntar("Selecciona una opción: ");
+function pedirNumero(texto) {
+  return Number(prompt(texto));
+}
 
-        switch (opcionIngresada) {
-            case "1":
-                console.clear();
-                console.log("=== Suma ===");
-                var numero1 = parseFloat(await preguntar("Ingresa el primer número: "));
-                var numero2 = parseFloat(await preguntar("Ingresa el segundo número: "));
-                console.log("El resultado de la suma es:" + Suma(numero1, numero2));
-                break;
+function calculadora() {
+  let opcion;
+  do {
+    opcion = menu();
+    if (opcion >= 1 && opcion <= 4) {
+      const a = pedirNumero("Primer número: ");
+      const b = pedirNumero("Segundo número: ");
 
-            case "2":
-                console.clear();
-                console.log("=== Resta ===");
-                var numero1 = parseFloat(await preguntar("Ingresa el primer número: "));
-                var numero2 = parseFloat(await preguntar("Ingresa el segundo número: "));
-                console.log("El resultado de la resta es:" + Resta(numero1, numero2));
-                break;
+      const operaciones = {
+        1: () => console.log(`Resultado: ${a + b}`),
+        2: () => console.log(`Resultado: ${a - b}`),
+        3: () => console.log(`Resultado: ${a * b}`),
+        4: () => b === 0 ? console.log("❌ No se puede dividir entre 0") : console.log(`Resultado: ${a / b}`)
+      };
 
-            case "3":
-                console.clear();
-                console.log("=== Multiplicación ===");
-                var numero1 = parseFloat(await preguntar("Ingresa el primer número: "));
-                var numero2 = parseFloat(await preguntar("Ingresa el segundo número: "));
-                console.log("El resultado de la multiplicación es:" + Multiplicacion(numero1, numero2));
-                break;
-
-            case "4":
-                console.clear();
-                console.log("=== División ===");
-                var numero1 = parseFloat(await preguntar("Ingresa el primer número: "));
-                var numero2 = parseFloat(await preguntar("Ingresa el segundo número: "));
-                console.log("El resultado de la división es:" + Division(numero1, numero2));
-                break;
-
-            case "5":
-                console.log("Saliendo de la calculadora 👋");
-                Salir = false;
-                rl.close();
-                return;
-
-            default:
-                console.log("❌ Opción no válida. Intenta de nuevo.");
-        }
+      operaciones[opcion]();
+    } else if (opcion !== 5) {
+      console.log("⚠️ Opción inválida");
     }
+  } while (opcion !== 5);
+
+  console.log("👋 Saliendo de la calculadora...");
 }
 
+calculadora();
 
-main();
+
