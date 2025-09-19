@@ -43,42 +43,32 @@ if(menu==1)(
 
 */
 
-const prompt = require('prompt-sync')()
-let seleccion = prompt (  "Elija una de las siguientes opciones: "+
-    "\n 1. Suma"+
-    "\n 2. Resta"+
-    "\n 3. Multiplicacion \n");
+const prompt = require("prompt-sync")();
+let seleccion = prompt(
+  "Elija una de las siguientes opciones: " +
+    "\n 1. Suma" +
+    "\n 2. Resta" +
+    "\n 3. Multiplicacion \n"
+);
 
-    let primer_dato;
-    let segundo_dato;
-    let total;
+let primer_dato;
+let segundo_dato;
+let total;
 
-    if(seleccion==1||seleccion==2||seleccion==3){
-     
-    primer_dato=prompt("registrar el primer numero: ");
-    segundo_dato=prompt("registrar el segundo numero: ");
-   
-    }
-    
-if(seleccion=='1'){
-    
-    total=Number(primer_dato)+Number(segundo_dato);
-    console.log("el total de la suma es"+" "+ total);
+if (seleccion == 1 || seleccion == 2 || seleccion == 3) {
+  primer_dato = prompt("registrar el primer numero: ");
+  segundo_dato = prompt("registrar el segundo numero: ");
 }
 
-else if(seleccion=="2"){
-     
-     total=Number(primer_dato)-Number(segundo_dato);
-    console.log("el total de la resta es"+" "+ total);
-}
-
-else if(seleccion=="3"){
-    
-     total=Number(primer_dato)*Number(segundo_dato);
-    console.log("el total de la multiplicacion es"+" "+ total);
-}
-
-else {
-    console.log ("opcion incorrecta");
-
+if (seleccion == "1") {
+  total = Number(primer_dato) + Number(segundo_dato);
+  console.log("el total de la suma es" + " " + total);
+} else if (seleccion == "2") {
+  total = Number(primer_dato) - Number(segundo_dato);
+  console.log("el total de la resta es" + " " + total);
+} else if (seleccion == "3") {
+  total = Number(primer_dato) * Number(segundo_dato);
+  console.log("el total de la multiplicacion es" + " " + total);
+} else {
+  console.log("opcion incorrecta");
 }
